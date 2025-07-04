@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rev Guard Team</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      font-family: 'Segoe UI', sans-serif;
+      color: #f1f5f9;
+    }
+
+    .navbar {
+      background: #0d1117 !important;
+      border-bottom: 2px solid #1f6feb;
+    }
+
+    .navbar-brand {
+      font-family: 'Courier New', monospace;
+      color: #58a6ff !important;
+    }
+
+    .section-title {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #60a5fa;
+    }
+
+    .profile-card {
+      background: #1e293b;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      height: 100%;
+      border: 1px solid #334155;
+      cursor: pointer;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 20px #3b82f6aa, 0 0 40px #60a5faaa;
+    }
+
+    .profile-card img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #3b82f6;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover img {
+      transform: scale(1.15);
+    }
+
+    .profile-card h5 {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #f8fafc;
+      font-size: 1.1rem;
+    }
+
+    .profile-card p {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      min-height: 40px;
+    }
+
+    .github-btn {
+      margin-top: 10px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .github-btn:hover {
+      background-color: #2563eb;
+    }
+
+    .skills .badge {
+      font-size: 1rem;
+      margin: 5px;
+      background-color: #1e40af;
+      padding: 10px 15px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #3b82f6;
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      padding: 20px 0;
+      margin-top: 50px;
+      border-top: 1px solid #334155;
+    }
+
+    #profile-view {
+      display: none;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: transparent;
+      border: 1px solid #94a3b8;
+      color: #f1f5f9;
+    }
+
+    .back-btn:hover {
+      background-color: #1e40af;
+      color: #fff;
+    }
+
+    .projects-card {
+      background: #1e293b;
+      border-left: 5px solid #3b82f6;
+      color: #e2e8f0;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    }
+
+    .projects-card a {
+      text-decoration: none;
+    }
+
+    .projects-card .btn {
+      font-weight: bold;
+      box-shadow: 0 0 10px #3b82f6aa;
+    }
+
+    .projects-card .btn:hover {
+      box-shadow: 0 0 20px #60a5fa;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">💻 Rev Guard Team Portfolio</a>
+    </div>
+  </nav>
+
+  <div class="container mt-5" id="main-view">
+    <h2 class="section-title">Meet Our Team</h2>
+    <div class="row justify-content-center" id="profile-container"></div>
+
+    <h2 class="section-title">Skills</h2>
+    <div class="skills text-center">
+      <span class="badge text-bg-primary">HTML</span>
+      <span class="badge text-bg-primary">CSS</span>
+      <span class="badge text-bg-primary">JavaScript</span>
+      <span class="badge text-bg-primary">Bootstrap</span>
+      <span class="badge text-bg-primary">Git & GitHub</span>
+      <span class="badge text-bg-primary">Project Management</span>
+    </div>
+
+    <h2 class="section-title">Projects</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <div class="card p-4 projects-card">
+          <h4>📁 Explore More Projects</h4>
+          <p>Check out our detailed projects like Car Rental Calculator, Animal Identifier, Discount Checker, and more.</p>
+          <a href="https://aaronjef09.github.io/portfolio/project.html" target="_blank" class="btn btn-primary mt-2">
+            🔗 View Barcega's Projects Page
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Detail View -->
+  <div class="container mt-5" id="profile-view">
+    <div class="text-center">
+      <img id="profile-avatar" class="rounded-circle border border-primary" width="120" height="120" />
+      <h3 id="profile-name" class="mt-3"></h3>
+      <p id="profile-bio"></p>
+      <button class="github-btn" id="profile-link">View GitHub</button><br>
+      <button class="btn back-btn" onclick="goBack()">← Back to Team</button>
+    </div>
+  </div>
+
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 Created by RevGuard. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const team = [
+      { username: "aaronjef09", site: "https://aaronjef09.github.io/portfolio" },
+      { username: "shleyxx", site: "https://github.com/shleyxx" },
+      { username: "azi1408", site: "https://azi1408.github.io/" },
+      { username: "johnzed899", site: "https://johnzed899.github.io" }
+    ];
+
+    const profileContainer = document.getElementById("profile-container");
+    const mainView = document.getElementById("main-view");
+    const profileView = document.getElementById("profile-view");
+
+    function fetchGitHubProfile(member) {
+      return fetch(`https://api.github.com/users/${member.username}`)
+        .then(res => res.json())
+        .then(data => ({ ...data, site: member.site }))
+        .catch(() => null);
+    }
+
+    function showProfile(user) {
+      mainView.style.display = "none";
+      profileView.style.display = "block";
+
+      document.getElementById("profile-avatar").src = user.avatar_url;
+      document.getElementById("profile-name").textContent = user.name || user.login;
+      document.getElementById("profile-bio").textContent = user.bio || "No bio available.";
+      document.getElementById("profile-link").onclick = () => window.open(user.site, '_blank');
+    }
+
+    function goBack() {
+      profileView.style.display = "none";
+      mainView.style.display = "block";
+    }
+
+    function createCard(user) {
+      if (!user || user.message === 'Not Found') return;
+
+      const col = document.createElement("div");
+      col.className = "col-md-4 col-lg-3 mb-4 d-flex";
+
+      col.innerHTML = `
+        <div class="profile-card w-100">
+          <img src="${user.avatar_url}" alt="${user.login}">
+          <h5>${user.name || user.login}</h5>
+          <p>${user.bio || "GitHub user."}</p>
+        </div>
+      `;
+
+      col.querySelector('.profile-card').onclick = () => showProfile(user);
+      profileContainer.appendChild(col);
+    }
+
+    Promise.all(team.map(fetchGitHubProfile)).then(users => {
+      users.forEach(createCard);
+    });
+  </script>
+</body>
+</html>
